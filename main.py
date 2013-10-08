@@ -4,16 +4,16 @@ from Queue import Queue
 import Image
 
 def define_start():
-	for x in range(width):
-		if iswhite(base_pixels[x, 0]):
-			global start
-			start = (x, 0)
+    for x in range(width):
+        if iswhite(base_pixels[x, 0]):
+            global start
+            start = (x, 0)
 
 def define_end():
-	for x in range(width):
-		if iswhite(base_pixels[x, height-1]):
-			global end
-			end = (x, height-1)
+    for x in range(width):
+        if iswhite(base_pixels[x, height-1]):
+            global end
+            end = (x, height-1)
 
 def iswhite(value):
     r, g, b = value
@@ -47,8 +47,8 @@ def BFS(start, end, pixels):
             x,y = adjacent
 
             if (x,y) not in passed:
-            	passed.append((x,y))
-            	#pixels[x,y] = (127,127,127) # see note
+                passed.append((x,y))
+                #pixels[x,y] = (127,127,127) # see note
                 new_path = list(path)
                 new_path.append(adjacent)
                 queue.put(new_path)
